@@ -1,0 +1,66 @@
+filebeat.inputs:
+################
+
+#sales
+- type: log
+  enabled: true
+  paths:
+      - /linuxcash/logs/current/saleUnload*.log
+  fields:
+    type: sales
+  tags: ["sales"]
+  fields_under_root: true
+  scan_frequency: 5s
+
+#frinit
+- type: log
+  enabled: true
+  paths:
+      - /linuxcash/logs/current/frinit.log
+  fields:
+    type: frinit
+  tags: ["frinit"]
+  fields_under_root: true
+  scan_frequency: 5s
+
+#frdriver
+- type: log
+  enabled: true
+  paths:
+      - /linuxcash/logs/current/frdriver.log
+  fields:
+    type: frdriver
+  tags: ["frdriver"]
+  fields_under_root: true
+  scan_frequency: 5s
+
+#ntpsync
+- type: log
+  enabled: true
+  paths:
+      - /linuxcash/logs/current/ntpsync.log
+  fields:
+    type: ntpsync
+  tags: ["ntpsync"]
+  fields_under_root: true
+  scan_frequency: 5s
+
+#terminal
+- type: log
+  enabled: true
+  paths:
+      - /linuxcash/logs/current/terminal.log
+  fields:
+    type: terminal
+  tags: ["terminal"]
+  fields_under_root: true
+  scan_frequency: 5s
+
+#######################################
+output.logstash:
+  hosts: ["192.168.252.21:5044"]
+
+xpack.monitoring:
+  enabled: true
+  elasticsearch:
+    hosts: ["http://192.168.252.21:9200"]

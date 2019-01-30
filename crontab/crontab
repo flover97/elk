@@ -1,0 +1,1 @@
+@daily root curator /elasticsearch/crontab/delete_index.yml --config /elasticsearch/crontab/curator.yml --dry-run
