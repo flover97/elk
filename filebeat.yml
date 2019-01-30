@@ -7,8 +7,8 @@ filebeat.inputs:
   paths:
       - /linuxcash/logs/current/saleUnload*.log
   fields:
-    type: sales
-  tags: ["sales"]
+    type: cash_sales
+  tags: ["cash_sales"]
   fields_under_root: true
   scan_frequency: 5s
 
@@ -18,8 +18,8 @@ filebeat.inputs:
   paths:
       - /linuxcash/logs/current/frinit.log
   fields:
-    type: frinit
-  tags: ["frinit"]
+    type: cash_frinit
+  tags: ["cash_frinit"]
   fields_under_root: true
   scan_frequency: 5s
 
@@ -29,8 +29,8 @@ filebeat.inputs:
   paths:
       - /linuxcash/logs/current/frdriver.log
   fields:
-    type: frdriver
-  tags: ["frdriver"]
+    type: cash_frdriver
+  tags: ["cash_frdriver"]
   fields_under_root: true
   scan_frequency: 5s
 
@@ -40,8 +40,8 @@ filebeat.inputs:
   paths:
       - /linuxcash/logs/current/ntpsync.log
   fields:
-    type: ntpsync
-  tags: ["ntpsync"]
+    type: cash_ntpsync
+  tags: ["cash_ntpsync"]
   fields_under_root: true
   scan_frequency: 5s
 
@@ -51,8 +51,19 @@ filebeat.inputs:
   paths:
       - /linuxcash/logs/current/terminal.log
   fields:
-    type: terminal
-  tags: ["terminal"]
+    type: cash_terminal
+  tags: ["cash_terminal"]
+  fields_under_root: true
+  scan_frequency: 5s
+
+#mysql
+- type: log
+  enabled: true
+  paths:
+      - /var/log/mysql/error.log
+  fields:
+    type: cash_mysql_error
+  tags: ["cash_mysql_error"]
   fields_under_root: true
   scan_frequency: 5s
 

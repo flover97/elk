@@ -14,28 +14,16 @@ actions:
     filters:
     - filtertype: pattern
       kind: prefix
-      value: fr-*
-      exclude:
-    - filtertype: pattern
-      kind: prefix
-      value: terminal-*
+      value: cash*
       exclude:
     - filtertype: pattern
       kind: prefix
       value: nginx-*
-      exclude:
-    - filtertype: pattern
-      kind: prefix
-      value: sales-*
-      exclude:
-    - filtertype: pattern
-      kind: prefix
-      value: ntp-*
       exclude:
     - filtertype: age
       source: name
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
-      unit_count: 30 
+      unit_count: 30
       exclude:
